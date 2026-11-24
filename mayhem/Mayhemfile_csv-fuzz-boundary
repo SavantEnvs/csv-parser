@@ -1,0 +1,10 @@
+project: savantenvs/csv-parser
+target: csv-fuzz-boundary
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/csv-fuzz-boundary/testsuite
+
+cmds:
+  - cmd: /mayhem/build/mayhem/bin/csv_fuzz_boundary 
+    libfuzzer: true
+    timeout: 60

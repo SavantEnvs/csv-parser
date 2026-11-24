@@ -1,0 +1,11 @@
+project: savantenvs/csv-parser
+target: csv-row-json
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/csv-row-json/testsuite
+
+cmds:
+  - cmd: /mayhem/build/mayhem/bin/fuzz_row_json 
+    libfuzzer: true
+    dictionary: /mayhem/fuzz/csv.dict
+    timeout: 10

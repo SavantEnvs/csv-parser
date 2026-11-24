@@ -1,0 +1,11 @@
+project: savantenvs/csv-parser
+target: parse-no-header
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/parse-no-header/testsuite
+
+cmds:
+  - cmd: /mayhem/build/mayhem/bin/fuzz_parse_no_header 
+    libfuzzer: true
+    dictionary: /mayhem/fuzz/csv.dict
+    timeout: 10
